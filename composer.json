@@ -1,10 +1,10 @@
 {
     "name": "johnnycai/think-addons",
-    "description": "addons package for thinkphp5",
+    "description": "addons package for thinkphp5,mod from 5ini99/think-addons",
     "homepage": "https://github.com/bokelife/think-addons",
     "license": "Apache-2.0",
     "minimum-stability": "stable",
-    "version": "1.0.0",
+    "version": "0.9.0",
     "authors": [
         {
             "name": "Johnny",
