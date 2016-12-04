@@ -1,7 +1,7 @@
 # think-addons
 The ThinkPHP5 Addons Package,Mod from 5ini99/think-addons<br/>
 因项目需要，本插件修改自5ini99/think-addons，以适用自身项目。
-感谢5ini99/think-addons的分享
+感谢5ini99/think-addons的分享 
 
 ## 安装
 > composer require johnnycai/think-addons
