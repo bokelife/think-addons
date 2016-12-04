@@ -34,13 +34,17 @@ Hook::add('action_begin', function () {
     if (empty($data)) {
         $addons = (array)Config::get('addons');
         foreach ($addons as $key => $values) {
-            if (is_string($values)) {
-                $values = explode(',', $values);
-            } else {
-                $values = (array)$values;
+            $hookname=$values['name'];
+            $isenable=$values['enable'];
+            if($isenable){
+                if (is_string($hookname)) {
+                    $hookname = explode(',', $hookname);
+                } else {
+                    $hookname = (array)$hookname;
+                }
+                $addons[$key] = array_filter(array_map('get_addon_class', $hookname));
+                \think\Hook::add($key, $addons[$key]);
             }
-            $addons[$key] = array_filter(array_map('get_addon_class', $values));
-            \think\Hook::add($key, $addons[$key]);
         }
         cache('hooks', $addons);
     } else {
