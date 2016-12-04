@@ -34,14 +34,14 @@ Hook::add('action_begin', function () {
     if (empty($data)) {
         $addons = (array)Config::get('addons');
         foreach ($addons as $key => $values) {
-            $hookname=$values['name'];
-            $isenable=$values['enable'];
-            if($isenable){
-                if (is_string($hookname)) {
-                    $hookname = explode(',', $hookname);
-                } else {
-                    $hookname = (array)$hookname;
+            $addon_name =array();
+            foreach ($values as $addon){
+                if($addon['enable']){
+                    array_push($addon_name,$addon['name']);
                 }
+            }
+            if(count($addon_name)>0){
+                $hookname = (array)$addon_name;
                 $addons[$key] = array_filter(array_map('get_addon_class', $hookname));
                 \think\Hook::add($key, $addons[$key]);
             }
