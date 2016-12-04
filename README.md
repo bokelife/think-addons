@@ -1,16 +1,23 @@
 # think-addons
 The ThinkPHP5 Addons Package,Mod from 5ini99/think-addons<br/>
 因项目需要，本插件修改自5ini99/think-addons，以适用自身项目。
+感谢5ini99/think-addons的分享
 
 ## 安装
 > composer require johnnycai/think-addons
 
 ## 配置
 ### 公共配置
+
+> * TP5项目application目录下新增目录extra
+> * 建立配置文件addons.php
+
 ```
+
 'addons'=>[
 	// 可以定义多个钩子
-    'testhook'=>'test' // 键为钩子名称，用于在业务中自定义钩子处理，值为实现该钩子的插件，
+    'testhook'=>array('name'=>'test','enable'=>true), 
+    // 键为钩子名称，用于在业务中自定义钩子处理，值：name:实现该钩子的插件，enable为ture时启用，false时为禁用
 					// 多个插件可以用数组也可以用逗号分割
 ]
 ```
